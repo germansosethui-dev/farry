@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarryDLC - Оплата</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #16213e;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid #4a47a3;
+        }
+        h1 {
+            color: #a855f7;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .status {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+        .success { color: #4ade80; }
+        .fail { color: #f87171; }
+        p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: #a855f7;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #7c3aed;
+            transform: scale(1.05);
+        }
+        .timer {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            window.location.href = "https://t.me/FarryDLCBot";
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🟣 FarryDLC</h1>
+        
+        <div id="success" style="display: none;">
+            <div class="status success">✅</div>
+            <h2 style="color: #4ade80;">Оплата выполнена!</h2>
+            <p>Спасибо за покупку! 🎉<br>Возвращайтесь в бота для получения товара.</p>
+        </div>
+        
+        <div id="fail" style="display: none;">
+            <div class="status fail">❌</div>
+            <h2 style="color: #f87171;">Оплата отменена</h2>
+            <p>Вы отменили оплату.<br>Попробуйте снова в любое время.</p>
+        </div>
+
+        <a href="https://t.me/FarryDLCBot" class="btn">📱 Перейти в бота</a>
+        <p class="timer">Автоматический переход через 5 секунд...</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        
+        if (status === 'success') {
+            document.getElementById('success').style.display = 'block';
+        } else if (status === 'fail') {
+            document.getElementById('fail').style.display = 'block';
+        } else {
+            document.getElementById('success').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
